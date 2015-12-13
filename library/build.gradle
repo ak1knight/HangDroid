@@ -1,0 +1,8 @@
+apply from: 'https://raw.githubusercontent.com/soarcn/gradle/master/android-library.gradle'
+apply from: 'https://raw.githubusercontent.com/soarcn/gradle/master/maven_push.gradle'
+apply plugin: 'com.android.library'
+
+dependencies {
+    compile 'com.android.support:support-v4:22.2.0'
+}
+

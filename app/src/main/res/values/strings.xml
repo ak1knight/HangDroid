@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">HangDroid</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_game_over">GameOverActivity</string>
+    <string name="guessedletters">Guessed\nLetters</string>
+    <string name="title_activity_multiplayer">MultiplayerActivity</string>
+    <string name="title_activity_scores">ScoresActivity</string>
+    <string name="title_activity_text">TextActivity</string>
+    <string name="title_activity_contacts">ContactsActivity</string>
+</resources>

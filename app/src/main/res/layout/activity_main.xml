@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="HangDroid"
+            android:id="@+id/textView"
+            android:layout_marginBottom="75dp"
+            android:textSize="40sp"
+            android:textColor="@color/title_green" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single Player"
+            android:id="@+id/button"
+            android:layout_marginBottom="10dp"
+            android:onClick="startGame" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiplayer"
+            android:id="@+id/button2"
+            android:layout_marginBottom="10dp"
+            android:onClick="startMultiplayerGame"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play With a Contact"
+            android:id="@+id/button4"
+            android:layout_marginBottom="10dp"
+            android:onClick="startContactGame"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scores"
+            android:id="@+id/button3"
+            android:layout_marginBottom="10dp"
+            android:onClick="openScores"/>
+    </LinearLayout>
+</RelativeLayout>
