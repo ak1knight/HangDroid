@@ -19,7 +19,7 @@
             android:id="@+id/textView"
             android:layout_marginBottom="75dp"
             android:textSize="40sp"
-            android:textColor="@color/title_green" />
+            android:textColor="@color/white" />
 
         <Button
             android:layout_width="wrap_content"
