@@ -1,22 +1,22 @@
 package edu.slcc.alexknight.hangdroid;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Layout;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
-
 import java.util.Random;
 
-public class GameMultiActivity extends AppCompatActivity {
+public class GameMultiActivity extends AppCompatActivity implements AddLetterDialogFragment.NoticeDialogListener {
 
     String theWord = "";
 
@@ -30,7 +30,49 @@ public class GameMultiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_multi_game);
         theWord = getIntent().getStringExtra("GUESS_WORD").toUpperCase();
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment newFragment = new AddLetterDialogFragment();
+                newFragment.show(getFragmentManager(),"letter");
+            }
+        });
+
         createTextViews(theWord);
+    }
+
+    @Override
+    public void onDialogPositiveClick(EditText s) {
+        newLetter(s);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_game, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_new_game:
+                Intent intent1 = new Intent(this, MultiplayerActivity.class);
+                startActivity(intent1);
+                return true;
+            case R.id.action_main_menu:
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void createTextViews(String s) {
@@ -42,9 +84,7 @@ public class GameMultiActivity extends AppCompatActivity {
         }
     }
 
-    public void newLetter(View view) {
-        EditText editText = (EditText) findViewById(R.id.editTextLetter);
-
+    public void newLetter(EditText editText) {
         String letter = editText.getText().toString();
         letter = letter.toUpperCase();
 
